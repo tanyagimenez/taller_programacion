@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+    body{
+        background-image: url("./imgs/One_Direction.jfif");
+        background-size: cover;
+        backgroud-position: center;
+        backgroud-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    input{
+    background: pink;
+    color: black;
+    margin: 15px;
+    display: block;
+    padding: 10px;
+    }
+    button{
+            background: red !important;
+    color: white;
+    font-size: x-large;
+    padding: 10px;
+    }
+    #resultado{
+        background-color: aliceblue;
+    }
+    #caja{
+    background: #4b7eabad;
+    padding: 50px;
+    border-radius: 40px;
+    text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <div id="caja">
+        <h2>Calculo de IMC</h2>
+        <input onchange="calcular_imc()" type="number" id="npeso">
+        <input type="number" id="naltura" onchange="calcular_imc()">
+        <button onclick="calcular_imc()">Calcular</button>
+        <h2 id="resultado"></h2>
+        <img id="fotito" src="" alt="" srcset="">
+    </div>
+    <script type="text/javascript">
+        function calcular_imc() {
+/*             var altura, imc, peso;*/
+            peso = npeso.value;
+            altura = naltura.value;
+            imc = peso/(altura*altura);
+            if (imc < 18.6) {   
+                resultado.innerText = "bajopeso";
+                fotito.src = "./imgs/flaco.png";
+            }
+            if (imc >18.6 && imc < 25) {
+                resultado.innerText = "normal";
+                fotito.src = "./imgs/normal.png";
+            }
+        
+            if (imc >25 && imc < 30) {
+                resultado.innerText = "obesidad"
+                fotito.src = "./imgs/obeso.png"
+            }
+            if (imc > 30 && imc < 40) {
+                resultado.innerText = "obesidad extrema"
+                 fotito.src = "./imgs/superobes0.png"
+            }
+        }
+    </script>
+</body>
+</html>
